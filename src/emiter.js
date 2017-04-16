@@ -23,11 +23,11 @@ class EventEmitter
     }
   }
   
-  emit (name, ...rest)
+  emit (name, ...rest, context)
   {
     if (this.events[name]) {
       this.events[name].forEach (cb => {
-        cb.apply (this, rest);
+        cb.apply (context, rest);
       });
     }
   }
